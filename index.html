@@ -110,3 +110,160 @@
     </div>
 </body>
 </html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>River Island Portrait</title>
+    <style>
+        .portrait {
+            width: 600px;
+            height: 800px;
+            margin: 20px auto;
+            position: relative;
+            background: linear-gradient(180deg, #87ceeb 0%, #63b8ff 100%);
+            overflow: hidden;
+            border: 10px solid #654321;
+            border-radius: 5px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+
+        .sun {
+            position: absolute;
+            top: 50px;
+            right: 50px;
+            width: 80px;
+            height: 80px;
+            background: radial-gradient(circle at 30% 30%, #ffd700, #ff8c00);
+            border-radius: 50%;
+            box-shadow: 0 0 80px #ffd700;
+        }
+
+        .river {
+            position: absolute;
+            bottom: 0;
+            width: 200%;
+            height: 60%;
+            background: linear-gradient(90deg, #1e90ff 0%, #00bfff 100%);
+            clip-path: polygon(0 30%, 100% 45%, 100% 100%, 0 100%);
+            animation: flow 20s infinite linear;
+        }
+
+        .island {
+            position: absolute;
+            bottom: 25%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 400px;
+            height: 300px;
+            background: linear-gradient(45deg, #556b2f 0%, #6b8e23 100%);
+            border-radius: 40% 40% 0 0;
+            clip-path: polygon(0 30%, 20% 0, 40% 20%, 60% 0, 80% 15%, 100% 0, 100% 100%, 0 100%);
+        }
+
+        .vegetation {
+            position: absolute;
+            bottom: 25%;
+            width: 100%;
+            height: 200px;
+        }
+
+        .tree {
+            position: absolute;
+            background: #2e8b57;
+            clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+        }
+
+        .palm {
+            position: absolute;
+            width: 8px;
+            background: #8b4513;
+        }
+
+        .water-lily {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: radial-gradient(circle, #98fb98 30%, #7cfc00 70%);
+            border-radius: 50%;
+        }
+
+        @keyframes flow {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .reflection {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+            transform: scaleY(-1);
+        }
+
+        /* Detailed Elements */
+        .rock {
+            position: absolute;
+            background: #808080;
+            border-radius: 50%;
+        }
+
+        .bird {
+            position: absolute;
+            color: #333;
+            font-size: 24px;
+        }
+
+        .fish {
+            position: absolute;
+            width: 40px;
+            animation: swim 8s infinite linear;
+        }
+
+        @keyframes swim {
+            0% { transform: translateX(-100px) scaleX(1); }
+            100% { transform: translateX(600px) scaleX(1); }
+        }
+    </style>
+</head>
+<body>
+    <div class="portrait">
+        <div class="sun"></div>
+        
+        <!-- Island Vegetation -->
+        <div class="vegetation">
+            <div class="tree" style="left: 100px; width: 60px; height: 100px;"></div>
+            <div class="tree" style="left: 250px; width: 80px; height: 120px; background: #228b22"></div>
+            <div class="palm" style="left: 180px; bottom: -20px; height: 100px;"></div>
+            <div class="palm" style="left: 300px; bottom: -20px; height: 120px;"></div>
+        </div>
+
+        <!-- Main Island -->
+        <div class="island">
+            <div class="rock" style="bottom: -10px; left: 50px; width: 60px; height: 40px;"></div>
+            <div class="rock" style="bottom: -20px; right: 100px; width: 80px; height: 50px;"></div>
+        </div>
+
+        <!-- River with Elements -->
+        <div class="river">
+            <div class="reflection">
+                <!-- Reflected elements would go here -->
+            </div>
+            <svg class="fish" style="bottom: 20%; left: 10%">
+                <path d="M0 20 Q15 15 30 20 Q15 25 0 20" fill="#FF4500"/>
+                <path d="M30 20 L35 18 L35 22 Z" fill="#FF8C00"/>
+            </svg>
+            <div class="water-lily" style="left: 30%; bottom: 15%"></div>
+            <div class="water-lily" style="left: 45%; bottom: 20%"></div>
+            <div class="water-lily" style="left: 60%; bottom: 25%"></div>
+        </div>
+
+        <!-- Birds -->
+        <svg class="bird" style="top: 150px; left: 100px">
+            <path d="M0 0 Q10-5 20 0 Q10 5 0 0" fill="currentColor"/>
+        </svg>
+        <svg class="bird" style="top: 180px; left: 130px">
+            <path d="M0 0 Q10-5 20 0 Q10 5 0 0" fill="currentColor"/>
+        </svg>
+    </div>
+</body>
+</html>
