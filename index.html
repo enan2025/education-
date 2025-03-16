@@ -85,3 +85,79 @@
 
 </body>
 </html>
+import turtle
+
+# Set up the screen
+screen = turtle.Screen()
+screen.bgcolor("skyblue")
+
+# Create a turtle object for drawing
+pen = turtle.Turtle()
+pen.speed(5)
+
+# Function to draw the river
+def draw_river():
+    pen.penup()
+    pen.goto(-300, -100)  # Starting position of the river
+    pen.pendown()
+    pen.color("blue")
+    pen.begin_fill()
+    
+    pen.setheading(-60)
+    for _ in range(2):
+        pen.circle(200, 90)  # Create the curve of the river
+    pen.end_fill()
+
+# Function to draw the land
+def draw_land():
+    pen.penup()
+    pen.goto(-350, -100)  # Start position for the land
+    pen.pendown()
+    pen.color("green")
+    pen.begin_fill()
+    
+    pen.setheading(0)
+    pen.forward(700)  # Draw the horizontal land
+    pen.left(90)
+    pen.forward(100)  # Height of the land
+    pen.left(90)
+    pen.forward(700)
+    pen.left(90)
+    pen.forward(100)
+    pen.end_fill()
+
+# Function to draw trees along the river
+def draw_tree(x, y):
+    pen.penup()
+    pen.goto(x, y)
+    pen.pendown()
+    pen.color("brown")
+    pen.begin_fill()
+    for _ in range(4):  # Draw tree trunk
+        pen.forward(10)
+        pen.left(90)
+    pen.end_fill()
+    
+    pen.penup()
+    pen.goto(x - 15, y + 10)  # Start position for tree leaves
+    pen.pendown()
+    pen.color("green")
+    pen.begin_fill()
+    pen.circle(15)  # Tree canopy
+    pen.end_fill()
+
+# Draw the scene
+draw_land()
+draw_river()
+
+# Draw some trees along the river
+draw_tree(-150, -50)
+draw_tree(50, 0)
+draw_tree(100, -80)
+draw_tree(-200, -50)
+
+# Hide the turtle after drawing
+pen.hideturtle()
+
+# Keeps the window open
+turtle.done()
